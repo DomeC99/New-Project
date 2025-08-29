@@ -1,48 +1,53 @@
-let cityAndDate = document.querySelector("form");
-cityAndDate.addEventListener("submit", search);
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = Math.round(response.data.temperature.current);
+  let cityElement = document.querySelector("#current-city");
+  cityElement.innerHTML = response.data.city;
+  temperatureElement.innerHTML = temperature;
+}
 
 function search(event) {
-event.preventDefault();
-let apiKey = "28fac95a24b3ba61410a05dt43ob3b30";
-let city = document.querySelector("#typecity").value;
-let apiURl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-axios.get(apiURl).then(displayWeather);
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#search-input");
+  let city = searchInputElement.value;
+
+  let apiKey = "b2a5adcct04b33178913oc335f405433";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-function displayWeather(response) {
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let day = date.getDay();
 
-let h1 = document.querySelector(".current-city");
-h1.innerHTML = response.data.city;
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let currentDate = document.querySelector(".date");
-currentDate.innerHTML = formatDate();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
 
-let temperature = document.querySelector(".temp");
-temperature.innerHTML = Math.round(response.data.temperature.current);
-temperature.classList.add("temp");
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
 
-let icon = document.querySelector(".sun");
-icon.innerHTML = `<img src="${response.data.condition.icon_url}" alt="icon">`;
-icon.classList.add("sun");
+  let formattedDay = days[day];
+  return `${formattedDay} ${hours}:${minutes}`;
 }
 
-function formatDate() {
-let time = new Date();
-let days = [
-"Sunday",
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday",
-];
-let day = days[time.getDay()];
-let hour = time.getHours();
-let minutes = time.getMinutes();
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
 
-if (minutes < 10) minutes = `0${minutes}`;
-if (hour < 10) hour = `0${hour}`;
+let currentDateELement = document.querySelector("#current-date");
+let currentDate = new Date();
 
-return `${day} ${hour}:${minutes}`;
-}
+currentDateELement.innerHTML = formatDate(currentDate);
