@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>My weather application</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello there!</h1>
+    <div class="container">
+        <header>
+            <form >
+                <input class="search-input" id="typecity" type="text" placeholder="Enter a city..." required/>
+                <button type="submit" id="search" class="search-button">Search</button>
+            </form>
+        </header>
+        <main>
+            <hr />
+            <div class="weather">
+                <div class="city">
+                    <h1 class="current-city">Paris</h1>
+                    <p><span class="date">Saturday 15:32</span>, moderate rain <br> Humidity: <span class="highlight"><strong>87%</strong></span>, Wind: <span class="highlight"><strong>7.2km/h</strong></span></p>
+                </div>
+                <div class="temperature">
+                    <span class="sun">🌞</span><span class="temp">14 </span><span class="celsius">°C</span>
+                </div>
+            </div>
+            <hr />
+        </main>
+        <footer class="coded-by">
+            <small>This project was coded by <a href="" target="_blank">Doménica Criollo</a> and is <a href="" target="_blank">on Github</a> and <a href="" target="_blank">hosted on Netlify</a></small>
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

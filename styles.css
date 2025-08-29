@@ -1,4 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f1fe;
+    font-family: 'Roboto-dome', sans-serif;
+}
+.container {
+    background-color: rgb(255, 255, 255);
+    margin: 40px;
+    padding: 25px;
+    max-width: 70%;
+    max-height: 40%;
+    border-radius: 8px;
+    box-shadow: 15px 15px 15px rgba(69,66, 66, 0.2);
+    justify-self: center;
+}
+
+#typecity {
+    padding: 14px;
+    border-radius: 5px;
+    background-color: #f5f1fe;
+    border: 1px solid #f5f1fe;
+    width: 100%;
+    margin-right: 5px;
+}
+
+#search {
+    background-color: #885df1;
+    color: white;
+    padding: 10px;
+    border: 1px none;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather p {
+    color: rgb(131, 130, 130);
+}
+
 h1 {
-    color: teal;
+    color: black;
+    font-weight: 800;
+}
+.highlight {
+    color: #e24c8b;
+}
+
+.temp {
+    font-size: 4em;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.sun {
+    font-size: 2em;
+    align-self: center;
+}
+
+.coded-by {
     text-align: center;
+    color: rgb(131, 130, 130);
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+a {
+    font-weight: bold;
+    color:#885df1
+}
+
+.celsius {
+    color: #000000;
+    font-weight: bold;
+    align-self: start;
+    padding-top: 10px;
+}
+
+.temperature {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    align-items: start;
+    height: max-content;
+}
+
+hr {
+    border: none;
+    background-color: #a0a0a05d;
+    height: 1px;
+}
+
+header {
+    margin-bottom: 25px;
+}
+
+.roboto-dome {
+font-family: "Roboto", sans-serif;
+font-optical-sizing: auto;
+font-weight: 100;
+font-style: normal;
+font-variation-settings:
+    "wdth" 100;
 }
